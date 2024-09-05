@@ -1,0 +1,581 @@
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid #ffffff4d;
+}
+img{
+    height: 65px;width: 65px;background-size: cover;
+}
+*{
+    font-family: sans-serif;
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    outline: none;border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden; /*Removes extra content*/
+    scroll-padding: 9rem;
+    scroll-behavior: smooth;
+}
+/* html::-webkit-scrollbar-track{
+    width: .8rem;
+}
+html::-webkit-scrollbar-track{
+    width: .8rem;
+    border-radius: 5rem;
+} */
+body{
+    background: var(--bg);
+}
+section{
+    padding: 2rem 7%;
+}
+.heading{
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+.heading span{
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+.btn:hover{
+    letter-spacing: .2rem;
+}
+.header{
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*Imp*/
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed; /*It moves as scrolled*/
+    top: 0;left:0;right: 0; /*should be done so as it occupy entire space*/
+    /* z-index: 1000  ; */
+}
+.header .logo{
+    height: 6rem;
+}
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: white;
+}
+.header .navbar a:hover{
+    color: var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding: .5rem;
+}
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 1rem;
+}
+.header .icons div:hover{
+    color: var(--main-color);
+}
+#menu-btn{
+    display: none;
+}
+.header .search-form{
+    position: absolute; /*absolute according to header class*/
+    top: 9rem;right: 4rem;
+    background:#fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0); /*hides element*/
+    transform-origin: top;
+}
+.header .search-form.active{
+    transform: scaleY(1);
+}
+.header .search-form input{
+    height: 100%;
+    width: 100%; /*width full so label inside input*/
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem;
+    text-transform: none;
+}
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+    color: var(--black);
+}
+.header .search-form label:hover{
+    color: var(--main-color);
+}
+/* watch cart items--------------------------- */
+.header .cart-items-container{
+    position: absolute;
+    top: 100%;right: -100%;
+    height: 70rem;
+    width: 35rem;
+    background: #fff;
+    padding: 0 1.5rem;
+    
+}
+.header .cart-items-container.active{
+    right: 0%;
+}
+.header .cart-items-container .cart-item{
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.header .cart-items-container .cart-item .fa-items{
+    position: relative;
+    top: 1rem;right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+.header .cart-items-container .cart-item .fa-items:hover{
+    color: var(--main-color);
+}
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+.header .cart-items-container h3{
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+}
+.header .cart-items-container .price{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+}
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
+
+}
+.home{
+/* 100vh: The vh unit represents the viewport height. So, 100vh means 100% of the viewport height. This ensures that the element will have a minimum height equal to the full height of the browser window, regardless of its content.
+
+Using min-height: 100vh; is often helpful for creating layouts where you want to ensure that a certain section or container takes up at least the full height of the user's viewport. This can be particularly useful for creating full-height sections in a webpage */
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(home.avif) no-repeat;
+    background-size: cover; /*makes it complete*/
+    background-position: center; /*makes it center*/
+}
+.home .content{
+    max-width: 60rem;
+
+}
+.home .content h3{
+    max-width: 60rem;
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+.home .content p{
+    
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8; /*No use*/
+    padding: 1rem 0;
+    color: #fff;
+}
+.about{
+    height: 100vh;
+}
+.about .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+}
+/* The flex: 1 2 45rem; property is a shorthand for three flex-related properties:
+
+flex-grow: 1
+flex-shrink: 2
+flex-basis: 45rem */
+.about .row .image{
+    flex: 2 1 45rem; /*Imp*/
+}
+.about .row .image img{
+    width: 100%;
+}
+.about .row .content{
+    flex: 2 1 45rem; /*Imp*/
+    padding: 2rem;
+    background-color: #212122;
+}
+.about .row .content h3{
+    font-size: 3rem;
+    color: #fff;
+}
+.about .row .content p{
+    font-size: 1.6rem;
+    color: #ccc;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+.menu .box-container{
+    /* repeat(auto-fit, minmax(30rem, 1fr)): It creates a responsive layout by repeating columns automatically based on the available space. The auto-fit keyword ensures that the grid adapts to the available space. The minmax(30rem, 1fr) function sets a minimum column size of 30rem and a maximum of 1fr (fractional unit), allowing the columns to grow and fill the available space but not exceeding 1fr. */
+    display: grid;/*Imp*/
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));/*Imp*/
+    gap: 1.5rem;
+}
+.menu .box-container .box{
+    padding: 5rem;
+    text-align: center;
+    border: var(--border);
+}
+.menu .box-container .box img{
+    background-size: cover; /*makes it complete*/
+    background-position: center;
+    height: 13rem;
+    width: 13rem;
+}
+.menu .box-container .box h3{
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+.menu .box-container .box .price{
+    color: #fff;
+    font-size: 2.5rem;
+    padding: 5rem 0;
+}
+.menu .box-container .box span{
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: line-through;
+}
+.menu .box-container .box:hover{
+    background-color: #cac8c8;
+    
+}
+.menu .box-container .box:hover > *{
+    color: var(--black);
+}
+.products .box-container{
+    display: grid;/*Imp*/
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));/*Imp*/
+    gap: 1.5rem;
+}
+.products .box-container .box{
+    text-align: center;
+    border: var(--border);
+    padding: 2rem;
+}
+.products .box-container .box .icons a{
+     height: 5rem;
+    width: 5rem;
+    line-height: 5rem;/*Imp*/
+    font-size: 2rem;
+    border: var(--border);
+    color: #fff;
+    margin: .3rem; 
+}
+.products .box-container .box a:hover{
+    color: var(--main-color);
+}
+.products .box-container .box .image{
+    padding: 2.5rem 0;
+}
+.products .box-container .box img{
+    height: 25rem;
+}
+.products .box-container .box .content h3{
+    color: #fff;
+}
+.products .box-container .box .content h3{
+    color: #fff;
+    font-size: 2.5rem;
+}
+.products .box-container .box .content .stars{
+    padding: 1.5rem;
+}
+.products .box-container .box .content .stars i{
+    padding: 1.7rem;
+    color: var(--main-color);
+}
+.products .box-container .box .content .price{
+    color: #fff;
+    font-size: 2.5rem;
+}
+.products .box-container .box .content span{
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+.review .box-container{
+    display: grid;/*Imp*/
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));/*Imp*/
+    gap: 1.5rem;
+}
+.review .box-container .box{
+    border: var(--border);
+    text-align: center;
+    padding:3rem 2rem;
+}
+.review .box-container .box p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #ccc;
+    padding: 2rem 0;
+}
+.review .box-container .box img{
+    border-radius: 50%;
+    object-fit: cover;/*Imp*/
+}
+.review .box-container .box h3{
+    padding: 1rem 0;
+    font-size: 2rem;
+    color: #fff;
+}
+.review .box-container .box i{
+    padding: 1rem 0;
+    font-size: 2rem;
+    color:#d3ad7f;
+}
+.contact{
+    min-height: 100vh;
+}
+.contact .row{
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.contact .row .map{
+    flex: 1 1 45rem; /*Imp*/
+    width: 100%;
+    height: 44rem;
+    object-fit: cover;/*Imp*/
+}
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+.contact .row form h3 {
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color: #fff;
+}
+.contact .row form .inputBox{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: var(--black);
+    border: var(--border);
+}
+.contact .row form .inputBox span{
+    color: #fff;
+    font-size: 2rem;
+    margin: 2rem;
+    background: var(--bg);
+    
+}
+.contact .row form .inputBox input{
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+    text-transform: none;
+    background: var(--black);
+}
+.blog .box-container{
+    display: grid;/*Imp*/
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));/*Imp*/
+    gap: 1.5rem;
+}
+.blog .box-container .box{
+    border: var(--border);
+}
+.blog .box-container .box .image{
+    height: 25rem;
+    overflow: hidden;/**/
+    width: 100%;
+}
+.blog .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.blog .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+.blog .box-container .box .content{
+    padding: 2rem;
+}
+.blog .box-container .box .content .title{
+    font-size: 2.2rem;
+    
+    color: #fff;
+}
+.blog .box-container .box .content .title:hover{
+    color: var(--main-color);
+}
+.blog .box-container .box .content span{
+    color: #d3ad7f;
+    display: block;
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+.blog .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    color: #ccc;
+}
+.footer {
+    background: var(--black);
+    text-align: center;
+}
+.footer .share{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+.footer .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: #fff;
+    border: var(--border);
+    margin: 3rem;
+    border-radius: 50%;
+}
+.footer .share a:hover{
+    color: #d3ad7f;
+}
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 1rem;
+}
+.footer .links a{
+    padding: .7rem 2rem;
+    color: #fff;
+    border: var(--border);
+    font-size: 2rem;
+}
+.footer .links a:hover{
+    background: #d3ad7f;
+    letter-spacing: .3rem;
+}
+.footer .credit{
+    font-size: 1.6rem;
+    color: #fff;
+    
+    padding: 1.5rem;
+}
+.footer .credit span{
+    color: #d3ad7f;
+    font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 1.5rem 2rem;
+    }
+    .home{
+        
+        justify-content: center;
+    }
+    .home .cpntent h3{
+        font-size: 4.5rem;
+    }
+    .home .cpntent p{
+        font-size: 1.5rem;
+    }
+    section{
+        padding: 2rem;
+    }
+
+    #menu-btn {
+        display: inline-block;
+    }
+    #menu-btn:active{
+        rotate: 90deg;
+        transition: 0ms ease-in-out;
+    }
+    
+
+    .header .navbar {
+        position: absolute;
+        top: 100%;right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem); /*IMP*/
+    }
+    
+    .header .navbar.active{
+        right: 0;
+    }
+
+    .header .navbar a {
+        color: var(--black);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    } 
+    .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+}
+
+
